@@ -1,0 +1,11 @@
+<app-home
+  [accounts]="(userAccounts$ | async) != null ? $any(userAccounts$ | async) : []"
+  [selectedAccount]="(selectedAccount$ | async)"
+  [currentUser]="(currentUser$ | async)"
+  [accountHistory]="(accountHistory$ | async) ? $any(accountHistory$ | async) : []"
+  [loadingUserAccounts]="(loadingUserAccounts$ | async) ? $any(loadingUserAccounts$) : false"
+  [loadingUserAccountHistory]="(loadingUserAccountHistory$ | async) ? $any(loadingUserAccountHistory$) : false"
+  (accountSelectionChange)="accountSelectionChange($event)"
+  (refreshSelectedAccount)="refreshSelectedAccount()"
+  (transferFunds)="transferFunds()"
+></app-home>

@@ -1,0 +1,37 @@
+<div class="account-history-wrapper">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <section class="table-container">
+    <mat-table  
+      [dataSource]="dataSource" 
+      matSort 
+      matSortDirection="desc"
+      matSortDisableClear
+      class="table">
+      <ng-container matColumnDef="accountName">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Account Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.accountName }} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Amount
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{element.amount}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="currencyCode">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Currency Code
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.currencyCode}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="accountRowClick(row)" [ngClass]="{'selected-account': row.accountId == selectedAccount?.accountId}"></mat-row>
+    </mat-table>
+  </section>
+</div>

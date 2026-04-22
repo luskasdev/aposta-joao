@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+.dialog-wrapper {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 32px;
+  .dialog-header {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      padding: 0px;
+      margin: 0px;
+    }
+    span {
+      white-space: pre-line;
+    }
+  }
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}

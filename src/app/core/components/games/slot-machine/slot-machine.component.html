@@ -1,0 +1,47 @@
+
+<div class="slot-wrapper">
+  <div class="actions">
+    <div class="row">
+      <div class="action-item">
+        <mat-form-field class="wager-amount">
+          <mat-label>Wager Amount</mat-label>
+          <input matInput placeholder="Wager" type="number" [formControl]="amountControl" required [disabled]="!enableInputs">
+        </mat-form-field>
+      </div>
+      <div class="action-item result">
+        <span>{{resultText}}</span>
+      </div>
+      <div class="action-item button-wrapper">
+        <div>
+          <button 
+            mat-flat-button 
+            color="primary" 
+            (click)="onSlotMachineRoll()" 
+            [disabled]="!enableRollButton"
+            class="roll"
+            >ROLL
+          </button>
+        </div>
+        <div>
+          <button 
+            mat-icon-button
+            (click)="infoClick()" 
+            class="info">
+            <mat-icon>info_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slot-wrapper">
+    <div class="moving-border">
+      <div class="slot-game">
+          <div class="slots">
+              <div class="reel"></div>
+              <div class="reel"></div>
+              <div class="reel"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

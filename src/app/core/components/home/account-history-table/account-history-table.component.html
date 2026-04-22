@@ -1,0 +1,57 @@
+<div class="account-history-wrapper">
+  <div class="header-content">
+    <h2>Account History</h2>
+  </div>
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <section class="table-container">
+    <mat-table  
+      [dataSource]="dataSource" 
+      matSort 
+      matSortActive="changeDate" 
+      matSortDirection="desc"
+      matSortDisableClear
+      class="table">
+      <ng-container matColumnDef="changeDate">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Date 
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.changeDate | date:'short' : "utc" }} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="previousAmount">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Previous Amount
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{element.previousAmount}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="newAmount">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          New Amount
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{element.newAmount}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="transactionAmount">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Transaction Amount
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{element.transactionAmount}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="transactionNotes">
+        <mat-header-cell *matHeaderCellDef 
+          mat-sort-header> 
+          Transaction Notes
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.transactionNotes}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </section>
+</div>

@@ -1,0 +1,10 @@
+@use "variables" as *;
+
+.game-actions-wrapper { 
+  .mat-mdc-tab-group {
+    ::ng-deep .mdc-tab__text-label {
+      font-size: 24px;
+      color: $shade-white-grey;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div class="account-wrapper">
+  <div class="action-list">
+    <div class="header">
+      <h1>Account Infomation</h1>
+      <button
+        (click)="refreshSelectedAccount.emit()" 
+        mat-icon-button>
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+    <div class="content">
+      <div class="account-name item">
+        <div class="title">Account Name:</div>
+        <div class="value">{{selectedAccount?.accountName}}</div>
+      </div>
+      <div class="current-balance item">
+        <div class="title">Current Balance:</div>
+        <div class="value">{{ selectedAccountBalanace }}</div>
+      </div>
+      <div class="actions item"> 
+        <button 
+          mat-flat-button 
+          (click)="transferFundsClick()"
+          >Transfer Funds
+        </button>
+        <button 
+          mat-flat-button 
+          (click)="logoutClick()"
+          >Log Out
+        </button>
+      </div>
+      <div class="games item">
+        <button 
+        mat-flat-button 
+        (click)="gamesClick()"
+        >Games
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

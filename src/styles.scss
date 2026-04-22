@@ -1,0 +1,17 @@
+@use "variables" as *;
+
+html,body
+{
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: $shade-black-light;
+}
+
+* {
+    font-family: "balantro";
+    letter-spacing: 1px;
+}

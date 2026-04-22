@@ -1,0 +1,6 @@
+<div class="game-actions-wrapper">
+  <slot-machine
+    [selectedAccount]="selectedAccount"
+    (updateAccountBalance)="updateAccountBalance.emit($event)"
+  ></slot-machine>
+</div>

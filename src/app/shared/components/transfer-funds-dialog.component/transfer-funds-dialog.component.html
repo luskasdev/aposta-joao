@@ -1,0 +1,57 @@
+<div class="dialog-wrapper">
+  <form [formGroup]="transferFundsForm" (ngSubmit)="onSubmit()">
+    <div class="dialog-header">
+      <h2>Transfer Funds</h2>
+    </div>
+    <div class="dialog-content">
+      <div class="account-container">
+        <div class="account-select">
+          <div class="from-account select">
+            <mat-form-field>
+              <mat-label>From Account - {{getFromSelectedAccount()?.currencyCode}}</mat-label>
+              <mat-select formControlName="fromAccount">
+                <mat-option *ngFor="let acct of fromAccounts" [value]="acct.accountId">
+                  {{acct.accountName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="balance">
+              <div class="title">Balance</div>
+              <div class="value">{{getFromSelectedAccount()?.amount}} {{getFromSelectedAccount()?.currencyCode}} </div>
+            </div>
+          </div>
+          <div class="to-account select">
+            <mat-form-field>
+              <mat-label>To Account - {{getToSelectedAccount()?.currencyCode}}</mat-label>
+              <mat-select formControlName="toAccount">
+                <mat-option *ngFor="let acct of toAccounts" [value]="acct.accountId">
+                  {{acct.accountName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="balance" *ngIf="getToSelectedAccount()">
+              <div class="title">Balance</div>
+              <div class="value">{{getToSelectedAccount()?.amount}} {{getToSelectedAccount()?.currencyCode}}</div>
+            </div>
+          </div>
+          <div class="amount select">
+            <!-- <mat-slider min="1" max="5" step="0.5">
+              <input matSliderThumb value="1.5">
+            </mat-slider>-->
+            <mat-form-field>
+              <mat-label>Amount - {{getToSelectedAccount()?.currencyCode}}</mat-label>
+              <input matInput placeholder="Amount" formControlName="amount" required />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="exchange-rate">
+        <span>{{getResultString()}}</span>
+      </div>
+    </div>
+    <div class="button-container">
+      <button mat-stroked-button color="secondary" (click)="onCloseDialog('secondary')">Cancel</button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="!enableConfirmButton">Confirm</button>
+    </div>
+  </form>
+</div>

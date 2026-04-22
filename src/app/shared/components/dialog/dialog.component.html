@@ -1,0 +1,22 @@
+<div class="dialog-wrapper">
+    <div class="dialog-header">
+        <h2>{{data.title}}</h2>
+    </div>
+    <div class="dialog-content">
+        <span>{{data.text}}</span>
+    </div>
+    <div class="button-container">
+        <button
+            *ngIf="data.secondaryButtonText"
+            mat-stroked-button
+            color="secondary"
+            (click)="onCloseDialog('secondary')"
+            >{{data.secondaryButtonText}}</button>
+        <button
+            *ngIf="data.primaryButtonText"
+            mat-flat-button
+            color="primary"
+            (click)="onCloseDialog('primary')"
+        >{{data.primaryButtonText}}</button>
+    </div>
+</div>

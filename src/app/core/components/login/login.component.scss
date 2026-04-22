@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+.login-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .login-button {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}

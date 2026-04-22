@@ -1,0 +1,25 @@
+<div class="main-wrapper">
+  <title-bar></title-bar>
+  <div class="content">
+    <div class="actions">
+      <main-actions
+        [accounts]="accounts"
+        [currentUser]="currentUser"
+        [selectedAccount]="selectedAccount"
+        (accountSelectionChange)="accountSelectionChange.emit($event)"
+        (refreshSelectedAccount)="refreshSelectedAccount.emit()"
+        (transferFunds)="transferFunds.emit()"
+      ></main-actions>
+      <account-select-table
+        [accounts]="accounts"
+        [selectedAccount]="selectedAccount"
+        [isLoading]="loadingUserAccounts"
+        (accountSelected)="accountSelectionChange.emit($event)"
+      ></account-select-table>
+    </div>
+    <account-history-table
+      [accountHistory]="accountHistory"
+      [isLoading]="loadingUserAccountHistory"
+    ></account-history-table>
+  </div>
+</div>

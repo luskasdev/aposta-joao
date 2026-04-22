@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+.main-wrapper {
+  height: 100vh;
+  width: 100%;
+  min-width: 1200px;
+  overflow-x: hidden;
+  color: $color-gray-200;
+
+  .content {
+    display: flex;
+    margin: 32px;
+    flex-direction: column;
+    .actions {
+      height: auto;
+      display: grid;
+      grid-template-columns: auto 2fr;
+      gap: 10px;
+    }
+  }
+}
